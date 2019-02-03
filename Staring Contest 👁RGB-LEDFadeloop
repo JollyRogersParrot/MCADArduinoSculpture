@@ -1,0 +1,75 @@
+// HiHi, Good Luck Parrot Says,
+
+// This uses Pulse Width Mod (on the Uno) from Digi Pins (6,5,3) to control the color shift of an RGB LED.
+// Longest Led Leg goes directly to GND, The Single Leg is Red, The Double Legs are Green, and Blue in order from the GND Leg,
+// A 220om Resistor is placed in line with all the Red, Green, and Blue Legs, Double Red Dashes toward the Magic Gumdrop.
+
+// Don't fax me if you break it. 
+
+// ^(*･｡･)ﾉ~~~βｙё　βｙё♪
+
+// Pin - not the cushion..
+#define BLUE 3
+#define GREEN 5
+#define RED 6
+
+void setup() // Or the warranty?
+{
+pinMode(RED, OUTPUT);
+pinMode(GREEN, OUTPUT);
+pinMode(BLUE, OUTPUT);
+digitalWrite(RED, HIGH);
+digitalWrite(GREEN, LOW);
+digitalWrite(BLUE, LOW);
+}
+
+// Int - E.Grrr
+int red;
+int green;
+int blue;
+
+// LoopSoup 
+void loop()
+{
+
+red = 255; // 1-255 = bright change.
+green = 0;
+blue = 0;
+
+for(int i = 0; i < 255; i += 1) // fade red, green full @ i=255
+{
+red -= 1;
+green += 1;
+analogWrite(RED, red);
+analogWrite(GREEN, green);
+delay(30);
+}
+
+red = 0;
+green = 255;
+blue = 0;
+
+for(int i = 0; i < 255; i += 1) // fade green, blue full @ i=255
+{
+green -= 1;
+blue += 1;
+analogWrite(GREEN, green);
+analogWrite(BLUE, blue);
+delay(30);
+}
+
+red = 0;
+green = 0;
+blue = 255;
+
+for(int i = 0; i < 255; i += 1) // fade blue, red full @ i=255
+{
+blue -= 1;
+red += 1;
+analogWrite(BLUE, blue);
+analogWrite(RED, red);
+delay(30);
+}
+}
+
+//☠
